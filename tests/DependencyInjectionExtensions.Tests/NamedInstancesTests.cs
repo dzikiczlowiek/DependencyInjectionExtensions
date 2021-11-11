@@ -1,4 +1,6 @@
 using System;
+using DependencyInjectionExtensions.Tests.Core;
+using DependencyInjectionExtensions.Tests.Core.TestsComponents;
 using DependencyInjectionExtensions.Tests.TestsComponents;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;

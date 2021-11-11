@@ -47,6 +47,5 @@ namespace DependencyInjectionExtensions
                 return sp.GetRequiredService(serviceType);
             }
         }
-
     }
 }

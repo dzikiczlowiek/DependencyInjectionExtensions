@@ -1,6 +1,7 @@
 ﻿using System;
+using DependencyInjectionExtensions.Tests.TestsComponents;
 
-namespace DependencyInjectionExtensions.Tests.TestsComponents
+namespace DependencyInjectionExtensions.Tests.Core.TestsComponents
 {
     public class BarService : IBar
     {

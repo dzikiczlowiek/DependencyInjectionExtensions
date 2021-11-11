@@ -44,23 +44,12 @@ namespace DependencyInjectionExtensions
             var namedFactory = serviceProvider.GetRequiredService<ITypedInstanceFactory<TInterface>>();
             return namedFactory.Resolve(parameter.GetType(), parameter);
         }
-        
+
         public static object GetRequiredService(this IServiceProvider serviceProvider, Type serviceType, string name)
         {
             var namedInstanceFactoryType = (typeof(INamedInstanceFactory<>)).MakeGenericType(serviceType);
-            var namedFactory = (INamedInstanceFactory)serviceProvider.GetRequiredService(namedInstanceFactoryType);
+            var namedFactory = (INamedInstanceFactory) serviceProvider.GetRequiredService(namedInstanceFactoryType);
             return namedFactory.Resolve(name);
-        }
-        
-        public static IServiceCollection AddTransient<TInterface, TImplementation>(this IServiceCollection services, Type triggerType, Func<object, object[]> getArgs)
-            where TInterface : class
-            where TImplementation : class, TInterface
-        {
-            services.TryAddSingleton<ITypedInstanceFactory<TInterface>, TypedInstanceFactory<TInterface>>();
-            services.AddTransient<TImplementation>();
-            var selector = new TypedInstanceSelector<TInterface>( typeof(TImplementation), triggerType, getArgs);
-            services.AddTransient<ITypedInstanceSelector<TInterface>>(_ => selector);
-            return services;
         }
     }
 }
