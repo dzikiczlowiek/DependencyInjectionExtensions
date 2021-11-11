@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Linq;
-using System.Reflection;
 using DependencyInjectionExtensions.Factories.Named;
 using DependencyInjectionExtensions.Factories.Typed;
 using Microsoft.Extensions.DependencyInjection;

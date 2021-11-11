@@ -1,5 +1,4 @@
 using System;
-using System.ComponentModel;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DependencyInjectionExtensions.Builders
@@ -18,5 +17,15 @@ namespace DependencyInjectionExtensions.Builders
             where TService : class
             where TImplementation : class, TService
             => new ComponentBuilder().For<TService, TImplementation>();
+
+        public override string ToString()
+        {
+            if (ImplementationType == null)
+            {
+                return $"{ServiceType} -> {Lifetime}";
+            }
+
+            return $"{ServiceType} -> {ImplementationType} -> {Lifetime}";
+        }
     }
 }
